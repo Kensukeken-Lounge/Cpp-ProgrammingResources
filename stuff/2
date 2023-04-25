@@ -1,0 +1,83 @@
+// Define the analog input pin for the potentiometer
+const int potPin = A0;
+
+// Define the digital output pins for the LEDs
+const int led1Pin = 2;
+const int led2Pin = 3;
+const int led3Pin = 4;
+
+// Define the access code to run the program
+const int accessCode = 1234;
+
+// Initialize variables for reading the potentiometer value
+int potValue = 0;
+float potVoltage = 0.0;
+
+void setup() {
+  // Set up the serial communication
+  Serial.begin(9600);
+
+  // Set up the digital output pins for the LEDs
+  pinMode(led1Pin, OUTPUT);
+  pinMode(led2Pin, OUTPUT);
+  pinMode(led3Pin, OUTPUT);
+}
+
+void loop() {
+  // Prompt the user to enter the access code
+  Serial.println("Please enter the access code:");
+  while (!Serial.available()) {}
+  int inputCode = Serial.parseInt();
+
+  // Check if the access code is correct
+  if (inputCode == accessCode) {
+    // Read the potentiometer value
+    potValue = analogRead(potPin);
+
+    // Convert the potentiometer value to a voltage between 0 and 5V
+    potVoltage = potValue * (5.0 / 1023.0);
+
+    // Turn off all LEDs if pot value is 0
+    if (potVoltage == 0) {
+      digitalWrite(led1Pin, LOW);
+      digitalWrite(led2Pin, LOW);
+      digitalWrite(led3Pin, LOW);
+      Serial.println("Off");
+    }
+    // Turn on one LED if pot value is between 0 and 1
+    else if (potVoltage > 0 && potVoltage <= 1) {
+      digitalWrite(led1Pin, HIGH);
+      digitalWrite(led2Pin, LOW);
+      digitalWrite(led3Pin, LOW);
+      Serial.println("Warming Up");
+    }
+    // Turn on two LEDs if pot value is between 1 and 2
+    else if (potVoltage > 1 && potVoltage <= 2) {
+      digitalWrite(led1Pin, HIGH);
+      digitalWrite(led2Pin, HIGH);
+      digitalWrite(led3Pin, LOW);
+      Serial.println("Low");
+    }
+    // Turn on three LEDs if pot value is between 2 and 3
+    else if (potVoltage > 2 && potVoltage <= 3) {
+      digitalWrite(led1Pin, HIGH);
+      digitalWrite(led2Pin, HIGH);
+      digitalWrite(led3Pin, HIGH);
+      Serial.println("Medium");
+    }
+    // Turn on three LEDs if pot value is between 3 and 4
+    else if (potVoltage > 3 && potVoltage <= 4) {
+      digitalWrite(led1Pin, HIGH);
+      digitalWrite(led2Pin, HIGH);
+      digitalWrite(led3Pin, HIGH);
+      Serial.println("High");
+    }
+  }
+  else {
+    // Incorrect access code entered, do nothing
+    Serial.println("Access denied.");
+  }
+
+  // Wait for a short period of time before repeating loop
+  delay(100);
+}
