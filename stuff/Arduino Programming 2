@@ -1,0 +1,56 @@
+Can you do this for me
+
+"Putting it all Together Review switch case statements. In this step you will merge, add, change and test your program. Step 1 & 2 got you so far but the remaining program is for you to finish. In the loop () function, write a program to execute the following: If the user presses the button, then a random message appears on the output screen. Create a minimum of 8 messages to predict the future of the user. Think fortune teller or crystal ball! 
+setup 1
+// constants won't change. They're used here to set pin numbers:
+
+const int buttonPin = 3;  // the number of the pushbutton pin
+
+
+// variables will change:
+
+int buttonState;  // variable for reading the pushbutton status
+
+void setup() {
+ 
+  
+  pinMode(buttonPin, INPUT);  // initialize the pushbutton pin as an input
+  Serial.begin(9600);
+  Serial.println("button pressed?");
+}
+
+void loop() {
+  // read the state of the pushbutton value:
+  buttonState = digitalRead(buttonPin);
+
+  // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
+  if (buttonState == HIGH) {
+   
+    Serial.println("yes"); 
+    
+  } else {
+   
+    Serial.println("no"); 
+  }
+delay(100);
+}
+
+setup 2
+long randNumber;
+
+void setup() {
+  Serial.begin(9600);
+ 
+}
+
+void loop() {
+  // 1. print a random number from 0 to 299
+  randNumber = random(300);
+ Serial.println(randNumber);
+
+  // 2. print a random number from 10 to 19
+  randNumber = random(10, 20);
+  Serial.println(randNumber);
+
+  delay(50);
+}
