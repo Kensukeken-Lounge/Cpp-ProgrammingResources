@@ -1,0 +1,52 @@
+// constants won't change. They're used here to set pin numbers:
+const int buttonPin = 3;  // the number of the pushbutton pin
+
+// variables will change:
+int buttonState;  // variable for reading the pushbutton status
+long randNumber;  // variable for storing random number
+
+void setup() {
+  pinMode(buttonPin, INPUT);  // initialize the pushbutton pin as an input
+  Serial.begin(9600);
+}
+
+void loop() {
+  // read the state of the pushbutton value:
+  buttonState = digitalRead(buttonPin);
+
+  // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
+  if (buttonState == HIGH) {
+    // generate a random number from 0 to 7 (inclusive)
+    randNumber = random(8);
+    
+    // use a switch case statement to select a random future prediction
+    switch (randNumber) {
+      case 0:
+        Serial.println("You will meet someone special today.");
+        break;
+      case 1:
+        Serial.println("You will receive a surprise gift in the mail.");
+        break;
+      case 2:
+        Serial.println("You will win a small amount of money.");
+        break;
+      case 3:
+        Serial.println("You will go on a fun adventure soon.");
+        break;
+      case 4:
+        Serial.println("You will learn a valuable lesson in the coming days.");
+        break;
+      case 5:
+        Serial.println("You will get a promotion at work.");
+        break;
+      case 6:
+        Serial.println("You will achieve a personal goal you've been working towards.");
+        break;
+      case 7:
+        Serial.println("You will make a new friend who will have a positive impact on your life.");
+        break;
+    }
+    
+    delay(500);  // wait for a short time to avoid multiple predictions being generated
+  }
+}
