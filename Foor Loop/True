@@ -1,1 +1,16 @@
 
+#include <iostream>
+
+int main() {
+    int numOfSheep;
+    std::cout << "How many sheep do you need to count before falling asleep? (1-500): ";
+    std::cin >> numOfSheep;
+
+    for (int i = 1; i <= numOfSheep; i++) {
+        std::cout << "You have counted " << i << " sheep." << std::endl;
+    }
+
+    std::cout << "Goodnight! Have a restful sleep." << std::endl;
+
+    return 0;
+}
