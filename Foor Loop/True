@@ -1,16 +1,38 @@
-
 #include <iostream>
 
+using namespace std;
+
 int main() {
-    int numOfSheep;
-    std::cout << "How many sheep do you need to count before falling asleep? (1-500): ";
-    std::cin >> numOfSheep;
 
-    for (int i = 1; i <= numOfSheep; i++) {
-        std::cout << "You have counted " << i << " sheep." << std::endl;
-    }
+  int numOfSheep;
 
-    std::cout << "Goodnight! Have a restful sleep." << std::endl;
+  cout << "How many sheep do you need to count before falling asleep? (1-500): ";
 
-    return 0;
+  cin >> numOfSheep;
+
+  
+
+  if(numOfSheep > 500) {
+
+    cout << "Error: Number cannot exceed 500." << endl;
+
+    return 0; // You can use a different non-zero return code to indicate error if you prefer
+
+  }
+
+  for (int i = 1; i <= numOfSheep; i++) {
+
+    cout << "You have counted " << i << " sheep." << endl;
+
+  }
+
+  
+
+  cout << "Good night! Have a restful sleep." << endl;
+
+  
+
+  return 0;
+
 }
+
