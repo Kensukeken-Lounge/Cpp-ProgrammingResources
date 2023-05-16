@@ -1,0 +1,35 @@
+#include <iostream>
+
+int main() {
+    // Nested for loop
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            std::cout << "O ";
+        }
+        std::cout << std::endl;
+    }
+
+    // For loop counting from 100 to 200 by twos
+    for (int i = 100; i <= 200; i += 2) {
+        printf("%d ", i);
+    }
+    printf("\n");
+
+    // While loop counting from 100 to 200 by twos
+    int num = 100;
+    while (num <= 200) {
+        printf("%d ", num);
+        num += 2;
+    }
+    printf("\n");
+
+    // Do...while loop counting from 100 to 200 by twos
+    int num2 = 100;
+    do {
+        printf("%d ", num2);
+        num2 += 2;
+    } while (num2 <= 200);
+    printf("\n");
+
+    return 0;
+}
