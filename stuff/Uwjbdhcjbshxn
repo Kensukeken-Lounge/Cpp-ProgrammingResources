@@ -1,0 +1,36 @@
+#include <iostream>
+
+int main() {
+  // Nested for loop
+  for (int i = 0; i < 10; i++) {
+    for (int j = 0; j < 10; j++) {
+      cout << "O ";
+    }
+    cout << endl;
+  }
+
+  // For loop
+  for (int i = 100; i <= 200; i += 2) {
+    cout << i << " ";
+  }
+  cout << endl;
+
+  // While loop
+  int count = 100;
+  while (count <= 200) {
+    cout << count << " ";
+    count += 2;
+  }
+  cout << endl;
+
+  // Do...while loop
+  int num = 100;
+  do {
+    cout << num << " ";
+    num += 2;
+  } while (num <= 200);
+  cout << endl;
+
+  return 0;
+}
+
